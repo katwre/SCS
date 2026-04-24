@@ -60,7 +60,7 @@ Use `help(scs.segment_cells)` in python to see more instructions on the usages.
 #### Background threshold
 By default, SCS identifies background spots using an absolute stain intensity cutoff of `stain_bg_threshold=10`, which works well for low-range fluorescence images (e.g. Stereo-seq, Seq-Scope).
 
-For **Visium** or other platforms that use **H&E staining** (pixel values 0–255), nearly every pixel exceeds 10, so no background samples are collected and the model cannot train properly. In this case, pass `stain_bg_percentile` to compute the threshold adaptively from the data at runtime:
+For **Visium**, **Xenium** or other platforms that use **H&E staining** (pixel values 0-255), nearly every pixel exceeds 10, so no background samples are collected and the model cannot train properly. In this case, pass `stain_bg_percentile` to compute the threshold adaptively from the data at runtime:
 ```python
 scs.segment_cells(bin_file, image_file, stain_bg_percentile=10)  # 10th percentile of the stain layer
 ```
